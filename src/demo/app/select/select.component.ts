@@ -20,6 +20,20 @@ export class SelectDemoComponent implements OnInit {
 
     constructor(public servicio: ServiceDemoSelect) { }
 
+    private groups = {
+      field: 'continente',
+      items: [{
+        id: 1,
+        label: 'Latinoamerica',
+        value: 'Latinoamerica'
+      }, {
+        id: 2,
+        value: 'Europa',
+        label: 'Europa'
+      }
+      ]
+    }
+
     ngOnInit() {
         // Opciones
         this.opciones = [{
@@ -36,7 +50,17 @@ export class SelectDemoComponent implements OnInit {
             id: 3,
             nombre: 'Chile',
             continente: 'Latinoamerica',
-        }];
+        },
+        {
+            id: 4,
+            nombre: 'Alemania',
+            continente: 'Europa',
+        },
+        {
+          id: 5,
+          nombre: 'Sudafrica',
+          continente: 'Sudafrica',
+      }];
 
         this.modelo1.select = this.modelo2.select = this.opciones[1];
         this.rModelo1.select = this.opciones[2];

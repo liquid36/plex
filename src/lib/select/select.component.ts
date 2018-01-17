@@ -43,8 +43,10 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
     @Input() multiple: false;
     @Input() idField: string;
     @Input() labelField: string; // Puede ser un solo campo o una expresión tipo ('string' + campo + 'string' + campo + ...)
-    @Input() groupField: string;
     @Input() closeAfterSelect = false;
+
+    @Input() groupField: string;
+    @Input() groupItems: { label: string, value: string };
 
     @Input()
     set data(value: any[]) {
@@ -231,9 +233,13 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
             openOnFocus: this.hasStaticData,
             closeAfterSelect: this.closeAfterSelect,
             preload: !this.hasStaticData,
+            // ...groupOpt,
             // dropdownParent: 'body',
+            optgroupField: this.groupField ? this.groupField : null,
+            optgroups:this.groupItems ? this.groupItems : null,
+
             render: {
-                option: (item, escape) => '<div class=\'option\'>' + escape(this.renderOption(item, this.labelField)) + '</div>',
+                option: (item, escape, b) => '<div class=\'option\'>' + escape(this.renderOption(item, this.labelField)) + '</div>',
                 item: (item, escape) => {
                     if (this.multiple) {
                         return '<div class=\'item\'>' + escape(this.renderOption(item, this.labelField)) + '</div>';
@@ -241,6 +247,9 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
                         return '<div class=\'item\'>' + escape(this.renderOption(item, this.labelField)) + '</div>';
                     }
                 },
+                optgroup_header: (data, escape) => {
+                  return '<div class="optgroup-header"><b>' + escape(data.label) + '</b></div>';
+                }
             },
             load: this.hasStaticData ? null : (query: string, callback: any) => {
                 // Esta función se ejecuta si preload = true o cuando el usuario escribe en el combo
@@ -292,6 +301,8 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
 
         // Guarda el componente para futura referencia
         this.selectize = $selectize[0].selectize;
+
+        (window as any).selectize = this.selectize;
 
         // Setea el estado inicial
         if (this._readonly) {
