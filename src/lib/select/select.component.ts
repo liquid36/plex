@@ -248,7 +248,7 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
                     }
                 },
                 optgroup_header: (data, escape) => {
-                  return '<div class="optgroup-header"><b>' + escape(data.label) + '</b></div>';
+                  return '<div class="optgroup-header">' + escape(data.label) + '</div>';
                 }
             },
             load: this.hasStaticData ? null : (query: string, callback: any) => {
