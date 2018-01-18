@@ -252,6 +252,7 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
                     this.onChange(this.value);
                 } else {
                     if (!value) {
+                        this.value = null;
                         this.onChange(null);
                     } else {
                         for (let i = 0; i < this.data.length; i++) {
@@ -348,12 +349,12 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
     registerOnTouched() {
     }
     registerOnChange(fn: any) {
-        this.onChange = (value) => {
-            value = this.remove$order(value);
-            fn(value);
-            this.change.emit({
-                value: value
-            });
-        };
+      this.onChange = (value) => {
+        value = this.remove$order(value);
+        fn(value);
+        this.change.emit({
+            value: value
+        });
+    };
     }
 }
