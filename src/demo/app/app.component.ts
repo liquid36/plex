@@ -35,9 +35,9 @@ export class AppComponent implements OnInit {
     this.plex.updateAppStatus({ API: 'OK' });
     this.plex.updateUserInfo({
       'usuario': {
-        'nombreCompleto': 'Haruki Morakami',
+        'nombreCompleto': 'Haruki Murakami',
         'nombre': 'Haruki',
-        'apellido': 'Morakami',
+        'apellido': 'Murakami',
         'username': 26108063,
         'documento': 26108063
       },
