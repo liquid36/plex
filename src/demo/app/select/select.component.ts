@@ -21,46 +21,62 @@ export class SelectDemoComponent implements OnInit {
     constructor(public servicio: ServiceDemoSelect) { }
 
     private groups = {
-      field: 'continente',
-      items: [{
-        id: 1,
-        label: 'Latinoamerica',
-        value: 'Latinoamerica'
-      }, {
-        id: 2,
-        value: 'Europa',
-        label: 'Europa'
-      }
-      ]
+        field: 'continente',
+        items: [{
+            id: 1,
+            label: 'Latinoamerica',
+            value: 'Latinoamerica'
+        }, {
+            id: 2,
+            value: 'Europa',
+            label: 'Europa'
+        }
+        ]
     }
 
     ngOnInit() {
         // Opciones
         this.opciones = [{
             id: 1,
-            nombre: 'Argentina',
-            continente: 'Latinoamerica',
+            nombre: 'Concepto Preferido 1',
+            preferido: true,
         },
         {
             id: 2,
-            nombre: 'Brasil',
-            continente: 'Latinoamerica',
+            nombre: 'Concepto 1A',
+            preferido: false,
         },
         {
             id: 3,
-            nombre: 'Chile',
-            continente: 'Latinoamerica',
+            nombre: 'Concepto 2A',
+            preferido: false,
         },
         {
             id: 4,
-            nombre: 'Alemania',
-            continente: 'Europa',
+            nombre: 'Concepto 3A',
+            preferido: false,
         },
         {
-          id: 5,
-          nombre: 'Sudafrica',
-          continente: 'Sudafrica',
-      }];
+            id: 5,
+            nombre: 'Concepto Preferido 2',
+            preferido: true,
+        },
+        {
+            id: 6,
+            nombre: 'Concepto 2A',
+            preferido: false,
+        },
+        {
+            id: 7,
+            nombre: 'Concepto 2B',
+            preferido: false,
+        },
+        {
+            id: 8,
+            nombre: 'Concepto Preferido 3',
+            preferido: true,
+        }
+        ];
 
         this.modelo1.select = this.modelo2.select = this.opciones[1];
         this.rModelo1.select = this.opciones[2];
@@ -74,19 +90,5 @@ export class SelectDemoComponent implements OnInit {
         } else {
             event.callback(null);
         }
-    }
-
-    cambiarOpciones() {
-        // this.modelo1.select = null;
-        this.opciones = [{
-            id: 2,
-            nombre: 'México',
-            continente: 'Norteamérica',
-        },
-        {
-            id: 3,
-            nombre: 'Francia',
-            continente: 'Europa',
-        }];
     }
 }

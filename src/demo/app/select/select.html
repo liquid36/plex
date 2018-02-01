@@ -1,50 +1,47 @@
 <section>
-    <div class="row">
-        <div class="col">
-            <plex-box>
-                <div class="row">
-                    <div class="col-md-6">
-                        <form>
-                            <plex-select [(ngModel)]="modelo2.select" name="select" (getData)="loadData($event)" placeholder="Llamada a la API">
-                            </plex-select>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <label>Modelo</label>
-                        <pre>{{modelo2 | json}}</pre>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <form>
-                            <plex-select [(ngModel)]="modelo2.selectMultiple" [multiple]="true" name="selectmulti" (getData)="loadData($event)" placeholder="Múltilple con llamada a la API" [readonly]="modelo2.soloLectura">
-                            </plex-select>
-                            <plex-bool [(ngModel)]="modelo2.soloLectura" name="soloLectura" label="Sólo lectura"> </plex-bool>
-                        </form>
-                    </div>
-                    <div class="col-md-6">
-                        <label>Modelo</label>
-                        <pre>{{modelo2 | json}}</pre>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <form>
-                            <plex-select [(ngModel)]="modelo1.select" name="select" [data]="opciones" label-field="nombre + ' (' + continente + ')'"
-                                label="Seleccione un país">
-                            </plex-select>
-
-                            <plex-select [(ngModel)]="modelo1.select" name="select" [data]="opciones" [groupField]="groups.field" [groupItems]="groups.items"  label-field="nombre + ' (' + continente + ')'"
-                                label="Seleccione un país por continente">
-                            </plex-select>
-                        </form>
-                    </div>
-                    <!-- <div class="col-md-6">
-                        <label>Modelo</label>
-                        <pre>{{modelo1 | json}}</pre>
-                    </div> -->
-                </div>
-            </plex-box>
+  <div class="row">
+    <div class="col">
+      <plex-box>
+        <div class="row">
+          <div class="col-md-6">
+            <form>
+              <plex-select [(ngModel)]="modelo2.select" name="select" (getData)="loadData($event)" placeholder="Llamada a la API">
+              </plex-select>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <label>Modelo</label>
+            <pre>{{modelo2 | json}}</pre>
+          </div>
         </div>
+        <div class="row">
+          <div class="col-md-6">
+            <form>
+              <plex-select [(ngModel)]="modelo2.selectMultiple" [multiple]="true" name="selectmulti" (getData)="loadData($event)" placeholder="Múltilple con llamada a la API"
+                [readonly]="modelo2.soloLectura">
+              </plex-select>
+              <plex-bool [(ngModel)]="modelo2.soloLectura" name="soloLectura" label="Sólo lectura"> </plex-bool>
+            </form>
+          </div>
+          <div class="col-md-6">
+            <label>Modelo</label>
+            <pre>{{modelo2 | json}}</pre>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <form>
+              <plex-select [(ngModel)]="modelo1.select" name="select" [data]="opciones" [multiple]="true" label-field="nombre + ' (' + continente + ')'"
+                label="Seleccione un país">
+              </plex-select>
+
+              <plex-select [(ngModel)]="modelo1.select" name="select" [data]="opciones" [groupField]="groups.field" [groupItems]="groups.items"
+                label-field="nombre + ' (' + continente + ')'" label="Seleccione un país por continente">
+              </plex-select>
+            </form>
+          </div>
+        </div>
+      </plex-box>
     </div>
+  </div>
 </section>

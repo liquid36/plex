@@ -206,10 +206,18 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
             // ...groupOpt,
             // dropdownParent: 'body',
             optgroupField: this.groupField ? this.groupField : null,
-            optgroups:this.groupItems ? this.groupItems : null,
+            optgroups: this.groupItems ? this.groupItems : null,
 
             render: {
-                option: (item, escape, b) => '<div class=\'option\'>' + escape(this.renderOption(item, this.labelField)) + '</div>',
+                option: (item, escape, b) => {
+                    let preferido = false;
+                    if (this.data[item.id - 1] && this.data[item.id - 1].preferido) {
+                        preferido = true;
+                    } else {
+                        preferido = false;
+                    }
+                    return '<div class="option" style="' + (preferido ? ' font-weight: bold; color: #000000;' : ' margin-left: 10px;') + '">' + escape(this.renderOption(item, this.labelField)) + '</div>'
+                },
                 item: (item, escape) => {
                     if (this.multiple) {
                         return '<div class=\'item\'>' + escape(this.renderOption(item, this.labelField)) + '</div>';
@@ -218,7 +226,7 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
                     }
                 },
                 optgroup_header: (data, escape) => {
-                  return '<div class="optgroup-header">' + escape(data.label) + '</div>';
+                    return '<div class="optgroup-header">' + escape(data.label) + '</div>';
                 }
             },
             load: this.hasStaticData ? null : (query: string, callback: any) => {
@@ -349,12 +357,12 @@ export class PlexSelectComponent implements AfterViewInit, ControlValueAccessor 
     registerOnTouched() {
     }
     registerOnChange(fn: any) {
-      this.onChange = (value) => {
-        value = this.remove$order(value);
-        fn(value);
-        this.change.emit({
-            value: value
-        });
-    };
+        this.onChange = (value) => {
+            value = this.remove$order(value);
+            fn(value);
+            this.change.emit({
+                value: value
+            });
+        };
     }
 }
