@@ -26,4 +26,10 @@ export class ModalDemoComponent {
             this.resultado = resultado;
         });
     }
+
+    modal() {
+        this.plex.modal().then((resultado) => {
+            this.resultado = resultado;
+        });
+    }
 }
