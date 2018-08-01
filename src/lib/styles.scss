@@ -1,5 +1,8 @@
 $mdi-font-path: '~@mdi/font/fonts';
 @import "node_modules/@mdi/font/scss/materialdesignicons.scss";
+@import "node_modules/node-waves/src/scss/waves.scss";
+@import "node_modules/sweetalert2/src/sweetalert2.scss";
+
 
 // Core variables and mixins
 @import "node_modules/bootstrap/scss/variables";
