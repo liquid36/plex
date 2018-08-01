@@ -5,7 +5,7 @@ Modificado a partir de https://github.com/T00rk/bootstrap-material-datetimepicke
 
 */
 
-declare var jQuery;
+// declare var jQuery;
 declare var  moment;
 
 /* tslint:disable */
@@ -994,4 +994,4 @@ declare var  moment;
                   }
 
             };
-})(jQuery, moment);
+})((jQuery as any), moment);

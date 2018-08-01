@@ -1,3 +1,6 @@
+$mdi-font-path: '~@mdi/font/fonts';
+@import "node_modules/@mdi/font/scss/materialdesignicons.scss";
+
 // Core variables and mixins
 @import "node_modules/bootstrap/scss/variables";
 @import "node_modules/bootstrap/scss/mixins";
